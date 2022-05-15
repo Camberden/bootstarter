@@ -1,0 +1,1 @@
+INSERT into alien values(101, 'Chrispy', 'Java'),(102, 'Mocha','Python'),(103, 'Fawch', 'JavaScript'),(104, 'Nesto', 'C++'),(105,'Laz', 'JavaScript'),(106, 'Navin', 'Java'),(107,'Anthony','Java');
