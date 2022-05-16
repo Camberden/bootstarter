@@ -17,7 +17,7 @@
 	<h4>Following guide by Telusko</h4>
 
 	<p>Submit new Alien data!</p>
-	<form action="alien">
+	<form method="post" id="submit" action="createAlien">
 		<input type="text" name="aid"><br> 
 		<input type="text" name="aname"><br> 
 		<input type="text" name="tech"><br>
@@ -41,7 +41,7 @@
 	
 	<p>Delete Alien based on ID</p>
 	
-	<form action="deleteAlien">
+	<form method="post" action="deleteAlien/aid">
 		<input type="text" name="aid"><br>
 		<input type="submit"><br>
 	</form>
@@ -50,9 +50,9 @@
 	${alien}
 	
 	<form action="getAllAliens">	
-	<input type="button">
+	<input type="submit">
 	</form>
 
-<script="action.js"></script>
+<script src="action.js"></script>
 </body>
 </html>

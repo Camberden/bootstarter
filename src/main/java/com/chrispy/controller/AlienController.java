@@ -35,17 +35,22 @@ public class AlienController {
 	}
 	
 	// CREATE (POST)
-	@PostMapping
+	@PostMapping("/createAlien")
 	public Alien createAlien(@RequestBody Alien alien) {
 		repo.save(alien);
 		return alien;
 	}
 	
+//	@PostMapping
+//	public void makeAlien(@RequestBody Alien alien) {
+//		System.out.println(alien);
+//		repo.addNewAlien(alien);
+//	}
+	
 	// READ
 	@RequestMapping("/readAlien")
 	public Alien readAlien(int aid) {
 		Alien alien = repo.findById(aid).orElse(new Alien());
-		home().addObject(alien);
 		return alien;
 	}
 
