@@ -25,19 +25,35 @@
 
 	<p>Search Alien based on ID</p>
 	<form method="get" action="getAlien">
-		<input type="text" name="aid"><br>
-		<input type="submit"><br>
+		<input type="text" name="aid"><br> <input type="submit"><br>
 	</form>
 
-	<p>Update Alien based on ID</p>
 
+	<%!String d = new java.util.Date().toString();%>
 	<p>
-		Showing time:
-		<%=new java.util.Date().toString().substring(8, 10)%>th!
+		Showing full string value:
+		<%=d%>
+	</p>
+	<%!Character c = new java.util.Date().toString().charAt(8);%>
+	<p>
+		Showing char value:
+		<%=c%>
 	</p>
 
+	<%
+		if (c == '0') {
+	%>
+	<div>It's a single digit day!</div>
+	<%
+		} else {
+	%>
+	<p>It's a double digit day!</p>
+	<%
+		}
+	%>
+
 	<p>
-		<span id="gotten"></span>
+		<span id="gotten">${c}</span>
 	</p>
 
 	<script src="action.js"></script>
