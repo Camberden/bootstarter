@@ -16,11 +16,10 @@
 	<h2>Spring Boot Testing Ground!</h2>
 	<h4>Following guide by Telusko</h4>
 
-<p>Submit new Alien data!</p>
+	<p>Submit new Alien data!</p>
 	<form method="post" id="submit" action="addAlien">
-		<input type="text" name="aid"><br> 
-		<input type="text" name="aname"><br> 
-		<input type="text" name="tech"><br>
+		<input type="text" name="aid"><br> <input type="text"
+			name="aname"><br> <input type="text" name="tech"><br>
 		<input type="submit"><br>
 	</form>
 
@@ -31,11 +30,17 @@
 	</form>
 
 	<p>Update Alien based on ID</p>
-	
-	
-	<p>Showing time: <%= new java.util.Date() %> </p>
 
-<script src="action.js"></script>
+	<p>
+		Showing time:
+		<%=new java.util.Date().toString().substring(8, 10)%>th!
+	</p>
 
- </body>
+	<p>
+		<span id="gotten"></span>
+	</p>
+
+	<script src="action.js"></script>
+
+</body>
 </html>
