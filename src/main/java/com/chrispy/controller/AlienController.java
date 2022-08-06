@@ -1,6 +1,5 @@
 package com.chrispy.controller;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,58 +26,30 @@ public class AlienController {
 	@Autowired
 	AlienRepo repo;
 	
+	// --- VIEW NAMES ---
 	// HOME
 	@RequestMapping("/")
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView("home");
 		return mv;
-	}
 	
-	// CREATE (POST)
-	@PostMapping("/createAlien")
-	public Alien createAlien(@RequestBody Alien alien) {
+	}
+	// --- CRUD OPERATIONS ---
+	// CREATE
+	@PostMapping("/addAlien")
+	public ModelAndView addAlien(Alien alien) {
 		repo.save(alien);
-		return alien;
-	}
+		// HOW DO I HEAD HOME AFTER COMPLETING THE FUNCTION??? --- working!
+		return new ModelAndView("home");
+		}
 	
-//	@PostMapping
-//	public void makeAlien(@RequestBody Alien alien) {
-//		System.out.println(alien);
-//		repo.addNewAlien(alien);
-//	}
-	
-	// READ
-	@RequestMapping("/readAlien")
-	public Alien readAlien(int aid) {
+	@GetMapping("/getAlien")
+	public ModelAndView getAlienByAid(@RequestParam int aid) {
+		ModelAndView mv = new ModelAndView("showAlien");
 		Alien alien = repo.findById(aid).orElse(new Alien());
-		return alien;
+		mv.addObject(alien);
+		return mv;
 	}
-
-	@GetMapping("/aliens")
-	public List<Alien> getAllAliens() {
-		return repo.findAll();
-	}
-		
-	//UPDATE (PUT)
-	@PutMapping("/alien")
-	public Alien saveOrUpdateAlien(Alien alien) {
-		repo.save(alien);
-		return alien;
-	}
-		
-	// DELETE
-	@DeleteMapping("/alien/{aid}")
-	public String deleteAlien(@PathVariable("aid") int aid) {
-		Alien a = repo.getById(aid);
-		repo.delete(a);
-		return "deleted";
-	}
-	
-	@RequestMapping("/alien/{aid}")
-	public Optional<Alien> getAlienById(@PathVariable("aid") int aid) {
-		return repo.findById(aid);
-	}
-	
 	
 
 }

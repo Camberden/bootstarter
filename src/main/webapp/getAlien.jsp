@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-${alien}
-	
+<p>This is a test!</p>
 
 </body>
 </html>

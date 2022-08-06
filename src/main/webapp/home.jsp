@@ -16,8 +16,8 @@
 	<h2>Spring Boot Testing Ground!</h2>
 	<h4>Following guide by Telusko</h4>
 
-	<p>Submit new Alien data!</p>
-	<form method="post" id="submit" action="createAlien">
+<p>Submit new Alien data!</p>
+	<form method="post" id="submit" action="addAlien">
 		<input type="text" name="aid"><br> 
 		<input type="text" name="aname"><br> 
 		<input type="text" name="tech"><br>
@@ -25,34 +25,17 @@
 	</form>
 
 	<p>Search Alien based on ID</p>
-	<form action="readAlien">
+	<form method="get" action="getAlien">
 		<input type="text" name="aid"><br>
 		<input type="submit"><br>
 	</form>
 
 	<p>Update Alien based on ID</p>
 	
-	<form action=saveOrUpdateAlien>
-		<input type="text" name="aid"><br>
-		<input type="text" name="aname"><br> 
-		<input type="text" name="tech"><br>
-		<input type="submit"><br>
-	</form>
 	
-	<p>Delete Alien based on ID</p>
-	
-	<form method="post" action="deleteAlien/aid">
-		<input type="text" name="aid"><br>
-		<input type="submit"><br>
-	</form>
-
-	<p>Let's put some data here!</p>
-	${alien}
-	
-	<form action="getAllAliens">	
-	<input type="submit">
-	</form>
+	<p>Showing time: <%= new java.util.Date() %> </p>
 
 <script src="action.js"></script>
-</body>
+
+ </body>
 </html>
